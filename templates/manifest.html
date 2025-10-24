@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recycling Manifest</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f0f8ff; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #0077b6; border-bottom: 2px solid #ccc; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #0077b6; color: white; }
+        .note { margin-top: 20px; padding: 15px; background: #e6f7ff; border-left: 5px solid #0077b6; }
+        .home-link { display: block; margin-top: 20px; color: #0077b6; text-decoration: none; font-weight: bold;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚚 Recycling Transfer Manifest</h1>
+        <p>This list contains all **unopened** medications that meet the minimum shelf life requirement ({{ min_days }} days) for transfer back to the pharmaceutical company for recycling/reprocessing.</p>
+
+        {% if items %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name (Standardized)</th>
+                    <th>GTIN</th>
+                    <th>Batch/Lot</th>
+                    <th>Expiry Date</th>
+                    <th>RxCUI</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.gtin }}</td>
+                    <td>{{ item.batch }}</td>
+                    <td>{{ item.expiry_date }}</td>
+                    <td>{{ item.rxcui }}</td>
+                    <td>{{ item.status.replace('_', ' ').title() }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="note info">
+            No items are currently ready for recycling. Scan more viable and sealed medications!
+        </div>
+        {% endif %}
+
+        <a class="home-link" href="{{ url_for('index') }}">← Back to Scanner</a>
+    </div>
+</body>
+</html>
