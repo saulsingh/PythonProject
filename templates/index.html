@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medicine Expiry Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+    <h1>Medicine Expiry Detector</h1>
+    <p>Scan the medicine barcode to check expiry.</p>
+
+    <div id="reader" style="width:300px;"></div>
+    <p id="result"></p>
+
+    <script src="{{ url_for('static', filename='js/scanner.js') }}"></script>
+</body>
+</html>
