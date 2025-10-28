@@ -1,8 +1,4 @@
-Flask
-<<<<<<< HEAD
-requests
-=======
-gunicorn
-python-dotenv
-requests
->>>>>>> a50511a160610462d843496c7c77eae9623e6002
+Flask==3.0.0
+requests==2.31.0
+python-dotenv==1.0.0
+

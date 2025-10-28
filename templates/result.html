@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Results - Phishing Guard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="shield-icon">🛡️</div>
+            <h1>Phishing Guard</h1>
+            <p class="subtitle">Scan Results</p>
+        </div>
+        
+        <div id="resultContainer">
+            <!-- Results will be dynamically loaded here -->
+        </div>
+        
+        <div class="card" style="text-align: center;">
+            <a href="/" class="btn-link">← Back to Home</a>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
